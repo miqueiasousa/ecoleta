@@ -1,0 +1,8 @@
+{
+  "name": "ecoleta",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:miqueiasousa/ecoleta.git",
+  "author": "Miqueias Sousa <miqueiassousa80@gmail.com>",
+  "license": "MIT"
+}
