@@ -14,3 +14,14 @@ node_modules/
 
 # Typescript build output
 dist/
+
+# Uploads path
+uploads/*
+
+# Static files
+!uploads/baterias.svg
+!uploads/eletronicos.svg
+!uploads/lampadas.svg
+!uploads/oleo.svg
+!uploads/organicos.svg
+!uploads/papeis-papelao.svg
