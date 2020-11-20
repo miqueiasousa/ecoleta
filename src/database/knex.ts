@@ -1,5 +1,5 @@
 import knex from 'knex'
 
-import knexconfig from '../../knexfile'
+import database from '../configs/database'
 
-export default knex(knexconfig)
+export default knex(database)
