@@ -1,9 +1,16 @@
 import express from 'express'
 import helmet from 'helmet'
 import morgan from 'morgan'
+import cors from 'cors'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const app = express()
 
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' ? process.env.ALLOW_ORIGIN : '*'
+}))
 app.use(helmet())
 app.use(morgan('dev'))
 
