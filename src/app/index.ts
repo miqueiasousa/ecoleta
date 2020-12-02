@@ -4,6 +4,8 @@ import morgan from 'morgan'
 import cors from 'cors'
 import dotenv from 'dotenv'
 
+import errorHandler from './middlewares/errorHandler'
+
 dotenv.config()
 
 const app = express()
@@ -17,6 +19,6 @@ app.use(morgan('dev'))
 
 app.use('/uploads', express.static('uploads'))
 
-app.get('/', (req, res) => res.json({ foo: 'bar' }))
+app.use(errorHandler)
 
 export default app
