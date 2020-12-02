@@ -9,11 +9,10 @@ import errorHandler from './middlewares/errorHandler'
 dotenv.config()
 
 const app = express()
+const origin = process.env.NODE_ENV === 'production' ? process.env.ALLOW_ORIGIN : '*'
 
 app.use(express.json())
-app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? process.env.ALLOW_ORIGIN : '*'
-}))
+app.use(cors({ origin }))
 app.use(helmet())
 app.use(morgan('dev'))
 
