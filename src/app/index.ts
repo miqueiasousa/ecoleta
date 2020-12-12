@@ -18,6 +18,6 @@ app.use(morgan('dev'))
 
 app.use('/uploads', express.static('uploads'))
 
-app.use(errorHandler)
+app.use(errorHandler())
 
 export default app
