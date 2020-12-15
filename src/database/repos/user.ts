@@ -20,8 +20,12 @@ class UserRepo implements IUserRepo {
     return userByName
   }
 
-  create (User: Pick<IUser, 'name' | 'email' | 'password'>): Promise<number> {
-    throw new Error('Method not implemented.')
+  async create (user: UserDTO) {
+    const [id]: number[] = await this.initKnex()
+      .insert(user)
+      .returning('id')
+
+    return id
   }
 }
 
