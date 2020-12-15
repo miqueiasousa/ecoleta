@@ -1,3 +1,4 @@
+import knex from '../../utils/knex'
 import { IUser, UserDTO } from '../../types'
 
 interface IUserRepo {
@@ -6,8 +7,17 @@ interface IUserRepo {
 }
 
 class UserRepo implements IUserRepo {
-  findOne (entry: Partial<IUser>): Promise<IUser | undefined> {
-    throw new Error('Method not implemented.')
+  private initKnex () {
+    return knex<IUser>('users')
+  }
+
+  async findOne (entry: Partial<IUser>) {
+    const userByName = await this.initKnex()
+      .select('*')
+      .where(entry)
+      .first()
+
+    return userByName
   }
 
   create (User: Pick<IUser, 'name' | 'email' | 'password'>): Promise<number> {
