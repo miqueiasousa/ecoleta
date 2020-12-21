@@ -3,11 +3,11 @@ import { HttpError } from 'http-errors'
 
 function errorHandler () {
   return function (error: HttpError, req: Request, res: Response, next: NextFunction) {
-    const { status, message } = error
+    const { statusCode, message } = error
 
     return res
-      .status(status || 500)
-      .json({ status, message })
+      .status(statusCode)
+      .json({ statusCode, message })
   }
 }
 
